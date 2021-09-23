@@ -30,7 +30,7 @@ namespace Libraries.Providers.DateTime.Extensions
         /// <param name="services">The <see cref="IServiceCollection"/>.</param>
         /// <returns>The <see cref="IServiceCollection"/>.</returns>
         /// <exception cref="ArgumentNullException">Throws <see cref="ArgumentNullException"/> when <see cref="IServiceCollection"/> is null.</exception>
-        public static IServiceCollection AddLocaleTimeProvider(this IServiceCollection services)
+        public static IServiceCollection AddLocaleDateTimeProvider(this IServiceCollection services)
         {
             _ = services ?? throw new ArgumentNullException(nameof(services));
             services.TryAddSingleton<IDateTimeProvider, LocaleDateTimeProvider>();
