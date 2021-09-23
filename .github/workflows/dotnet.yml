@@ -1,4 +1,4 @@
-name: .NET Libraries Nuget Publish
+name: .NET Libraries Build
 
 on:
   push:
