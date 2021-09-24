@@ -1,8 +1,11 @@
-name: publish to nuget
+name: Publish Libraries.Providers.DateTime
+
 on:
   push:
-    branches:
-      - master # Default release branch
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+    
 jobs:
   publish:
     name: build, pack & publish
