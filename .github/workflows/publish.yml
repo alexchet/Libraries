@@ -3,7 +3,7 @@ name: Publish Libraries.Providers.DateTime
 on:
   # the 1st condition
   workflow_run:
-    workflows: ["build"]
+    workflows: [".NET Libraries Build"]
     branches: [main]
     types: [completed]
     
