@@ -22,7 +22,7 @@ jobs:
       # Publish
       - name: publish on version change
         id: publish_nuget
-        uses: alexchet/publish-nuget@98292df037d2a58d1fb0c79f3e204ebf2af16aac
+        uses: alexchet/publish-nuget@86721c981412db6e692b0d4528b5705e460644e1
         with:
           # Filepath of the project to be packaged, relative to root of repository
           PROJECT_FILE_PATH: src/Providers/Libraries.Providers.DateTime/Libraries.Providers.DateTime.csproj
