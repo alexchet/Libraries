@@ -42,7 +42,7 @@ jobs:
           TAG_COMMIT: true
 
           # Format of the git tag, [*] gets replaced with actual version
-          TAG_FORMAT: v*
+          TAG_FORMAT: v*-${{GITHUB_RUN_NUMBER}}
 
           # API key to authenticate with NuGet server
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
