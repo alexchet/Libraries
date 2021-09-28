@@ -1,13 +1,16 @@
 name: Publish Libraries.Providers.DateTime
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  # the 1st condition
+  workflow_run:
+    workflows: ["build"]
+    branches: [main]
+    types:
+      - completed
     
 jobs:
   publish:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: build, pack & publish
     runs-on: ubuntu-latest
     steps:
