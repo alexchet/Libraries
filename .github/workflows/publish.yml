@@ -28,7 +28,7 @@ jobs:
           PROJECT_FILE_PATH: src/Providers/Libraries.Providers.DateTime/Libraries.Providers.DateTime.csproj
           
           # NuGet package id, used for version detection & defaults to project name
-          PACKAGE_NAME: Libraries.Providers.DateTime
+          PACKAGE_NAME: RazorCore.Libraries.Providers.DateTime
           
           # Filepath with version info, relative to root of repository & defaults to PROJECT_FILE_PATH
           VERSION_FILE_PATH: src/Directory.Build.props
