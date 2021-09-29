@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Libraries.Providers.DateTime.Abstractions\Libraries.Providers.DateTime.Abstractions.csproj" />
+    <ProjectReference Include="..\RazorCore.Libraries.Providers.DateTime.Abstractions\RazorCore.Libraries.Providers.DateTime.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>
