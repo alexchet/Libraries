@@ -1,4 +1,4 @@
-name: .NET Libraries Build
+name: .NET RazorCore.Libraries Build
 
 on:
   push:

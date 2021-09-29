@@ -1,9 +1,9 @@
-name: Publish Libraries.Providers.DateTime
+name: Publish RazorCore.Libraries.Providers.DateTime
 
 on:
   # the 1st condition
   workflow_run:
-    workflows: [".NET Libraries Build"]
+    workflows: [".NET RazorCore.Libraries Build"]
     branches: [main]
     types: [completed]
     
@@ -25,7 +25,7 @@ jobs:
         uses: alexchet/publish-nuget@1f653cd0d2434fe1495e051eef6229806bf5a012
         with:
           # Filepath of the project to be packaged, relative to root of repository
-          PROJECT_FILE_PATH: src/Providers/Libraries.Providers.DateTime/Libraries.Providers.DateTime.csproj
+          PROJECT_FILE_PATH: src/Providers/RazorCore.Libraries.Providers.DateTime/RazorCore.Libraries.Providers.DateTime.csproj
           
           # NuGet package id, used for version detection & defaults to project name
           PACKAGE_NAME: RazorCore.Libraries.Providers.DateTime
