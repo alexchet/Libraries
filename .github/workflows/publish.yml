@@ -1,4 +1,4 @@
-name: Publish RazorCore.Libraries.Providers.DateTime
+name: Publish RazorCore.Libraries
 
 on:
   # the 1st condition
@@ -8,8 +8,8 @@ on:
     types: [completed]
     
 jobs:
-  publish:
-    name: build, pack & publish
+  publish-razorcore-libraries-providers-datetime:
+    name: build, pack & publish-razorcore-libraries-providers-datetime
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -26,9 +26,58 @@ jobs:
         with:
           # Filepath of the project to be packaged, relative to root of repository
           PROJECT_FILE_PATH: src/Providers/RazorCore.Libraries.Providers.DateTime/RazorCore.Libraries.Providers.DateTime.csproj
-          
+
           # NuGet package id, used for version detection & defaults to project name
           PACKAGE_NAME: RazorCore.Libraries.Providers.DateTime
+          
+          # Filepath with version info, relative to root of repository & defaults to PROJECT_FILE_PATH
+          VERSION_FILE_PATH: src/Directory.Build.props
+
+          # Regex pattern to extract version info in a capturing group
+          VERSION_REGEX: ^\s*<Version>(.*)<\/Version>\s*$
+          
+          # Useful with external providers like Nerdbank.GitVersioning, ignores VERSION_FILE_PATH & VERSION_REGEX
+          # VERSION_STATIC: 1.0.0
+          
+          #Build Number
+          BUILD_NUMBER: ${{ github.run_number }}
+
+          # Flag to toggle git tagging, enabled by default
+          TAG_COMMIT: true
+
+          # Format of the git tag, [*] gets replaced with actual version
+          TAG_FORMAT: v*
+
+          # API key to authenticate with NuGet server
+          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+
+          # NuGet server uri hosting the packages, defaults to https://api.nuget.org
+          NUGET_SOURCE: https://api.nuget.org
+
+          # Flag to toggle pushing symbols along with nuget package to the server, disabled by default
+          INCLUDE_SYMBOLS: false
+          
+  publish-razorcore-libraries-data-abstractions:
+    name: build, pack & publish-razorcore-libraries-data-abstractions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      # - name: Setup dotnet
+      #   uses: actions/setup-dotnet@v1
+      #   with:
+      #     dotnet-version: 3.1.200
+
+      # Publish
+      - name: publish on version change
+        id: publish_nuget
+        uses: alexchet/publish-nuget@1f653cd0d2434fe1495e051eef6229806bf5a012
+        with:
+          # Filepath of the project to be packaged, relative to root of repository
+          PROJECT_FILE_PATH: src/Data/RazorCore.Libraries.Data.Abstractions/RazorCore.Libraries.Data.Abstractions.csproj
+
+          # NuGet package id, used for version detection & defaults to project name
+          PACKAGE_NAME: RazorCore.Libraries.Data.Abstractions
           
           # Filepath with version info, relative to root of repository & defaults to PROJECT_FILE_PATH
           VERSION_FILE_PATH: src/Directory.Build.props
