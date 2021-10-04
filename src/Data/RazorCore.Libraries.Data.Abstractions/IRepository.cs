@@ -1,5 +1,6 @@
 ﻿namespace RazorCore.Libraries.Data.Abstractions
 {
-    public interface IRepository<T, TPrimaryKey> where T : class, IEntity<TPrimaryKey> { }
-
+    public interface IRepository<TEntity> : IRepositoryOfT<TEntity, long> where TEntity : class IEntity<long>
+    {
+    }
 }

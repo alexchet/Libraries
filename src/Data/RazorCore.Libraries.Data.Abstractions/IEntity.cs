@@ -1,7 +1,7 @@
 ﻿namespace RazorCore.Libraries.Data.Abstractions
 {
-    public interface IEntity<T>
+    public interface IEntity<TPrimaryKey>
     {
-        T Id { get; set; }
+        TPrimaryKey Id { get; set; }
     }
 }
