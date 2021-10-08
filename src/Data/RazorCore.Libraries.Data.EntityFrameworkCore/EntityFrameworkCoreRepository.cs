@@ -12,11 +12,10 @@ namespace RazorCore.Libraries.Data.EntityFrameworkCore
     public abstract class EntityFrameworkCoreRepository<TEntity> : IRepository<TEntity, long> where TEntity : class, IEntity<long>
     {
         internal DbContext _context;
-        internal DbSet<TEntity> _dbSet;
 
         public EntityFrameworkCoreRepository(DbContext context)
         {
-            this._context = context;
+            _context = context;
         }
 
         public Task DeleteAsync(TEntity entity, CancellationToken cancellationToken = default)
